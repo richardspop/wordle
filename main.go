@@ -40,14 +40,4 @@ func main() {
 		}
 		word_list = ReduceList(word, matches, nonmatches, perfMatches, word_list)
 	}
-
-	// fmt.Println(ReduceList("pears", "e", "pars", make(map[int]string), word_list))
-
-	// reader := bufio.NewReader(os.Stdin)
-	// fmt.Print("Perfect matches : (y/n) ")
-	// flag, _ := reader.ReadString('\n')
-	// fmt.Println(flag)
-	// for strings.Contains(flag, "y") {
-	// 	flag, _ = reader.ReadString('\n')
-	// }
 }
