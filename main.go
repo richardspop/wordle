@@ -16,11 +16,14 @@ func main() {
 		reader := bufio.NewReader(os.Stdin)
 		fmt.Print("Enter Word : ")
 		word, _ := reader.ReadString('\n')
-		fmt.Print("Enter non perfect matches as a string : ")
+		word = trimString(word)
+		fmt.Print("Enter non perfect matches (yellow) as a string : ")
 		matches, _ := reader.ReadString('\n')
-		fmt.Print("Enter non matches as a string : ")
+		matches = trimString(matches)
+		fmt.Print("Enter non matches (grey) as a string : ")
 		nonmatches, _ := reader.ReadString('\n')
-		fmt.Print("Perfect matches : (y/n) ")
+		nonmatches = trimString(nonmatches)
+		fmt.Print("Perfect matches (green): (y/n) ")
 		flag, _ := reader.ReadString('\n')
 		perfMatches := make(map[int]string)
 		fmt.Println(flag)
@@ -40,4 +43,11 @@ func main() {
 		}
 		word_list = ReduceList(word, matches, nonmatches, perfMatches, word_list)
 	}
+	// word_list = ReduceList("tares", "ta", "res", make(map[int]string), word_list)
+}
+
+func trimString(word string) string {
+	word = strings.Replace(word, "\r", "", -1)
+	word = strings.Replace(word, "\n", "", -1)
+	return word
 }
